@@ -708,7 +708,7 @@ var UserBox = React.createClass({
               className: 'btn navbar-btn btn-xs ' + (betStore.state.wager.error === 'CANNOT_AFFORD_WAGER' ? 'btn-success' : 'btn-default'),
               onClick: this._openDepositPopup
             },
-            'Deposit'
+            '충전하기'
           ),
           el.button(
             {
@@ -716,7 +716,7 @@ var UserBox = React.createClass({
               className: 'btn btn-default navbar-btn btn-xs',
               onClick: this._openWithdrawPopup
             },
-            'Withdraw'
+            '출금하기'
           )
         ),
         // Balance
@@ -751,8 +751,8 @@ var UserBox = React.createClass({
         // Logged in as...
         el.span(
           {className: 'navbar-text'},
-          'Logged in as ',
-          el.code(null, worldStore.state.user.uname)
+          el.code(null, worldStore.state.user.uname),
+          '님 환영합니다.'
         ),
         // Logout button
         el.button(
@@ -761,7 +761,7 @@ var UserBox = React.createClass({
             onClick: this._onLogout,
             className: 'navbar-btn btn btn-default'
           },
-          'Logout'
+          '로그아웃'
         )
       );
     } else {
@@ -775,7 +775,7 @@ var UserBox = React.createClass({
               '&redirect_uri=' + config.redirect_uri,
             className: 'btn btn-default'
           },
-          'Login with Moneypot'
+          '머니팟 아이디로 로그인'
         )
       );
     }
@@ -808,7 +808,7 @@ var Navbar = React.createClass({
                 href: config.mp_browser_uri + '/apps/' + config.app_id,
                 target: '_blank'
               },
-              'View on Moneypot ',
+              '머니팟에서 보기 ',
               // External site glyphicon
               el.span(
                 {className: 'glyphicon glyphicon-new-window'}
@@ -890,8 +890,8 @@ var ChatBoxInput = React.createClass({
                 type: 'text',
                 value: this.state.text,
                 placeholder: worldStore.state.user ?
-                  'Click here and begin typing...' :
-                  'Login to chat',
+                  '채팅 메시지를 입력해 주세요...' :
+                  '로그인 해 주세요',
                 onChange: this._onChange,
                 onKeyPress: this._onKeyPress,
                 onFocus: this._onFocus,
@@ -912,7 +912,7 @@ var ChatBoxInput = React.createClass({
                 this.state.text.trim().length === 0,
               onClick: this._onSend
             },
-            'Send'
+            '보내기'
           )
         )
       )
